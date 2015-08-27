@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Merchant</title>
+  <title>Green Soko</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="wrapper">
+    <div class="header">
+      <h1>Green Soko</h1>
+      <p>Your Online Grocery</p>
+    </div>
 
-<%= yield %>
+    <p style="color: green"><%= flash[:notice] %></p>
 
+    <div class="sidebar">
+      (sidebar)
+    </div>
+
+    <div class="main">
+      <%= yield %>
+    </div>
+
+    <div class="footer">
+      Green Soko Online Grocery
+    </div>
+</div>
 </body>
+
 </html>
