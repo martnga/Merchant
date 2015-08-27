@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
+<h1>Your Order</h1>
 
+<<<<<<< Updated upstream
 <p>
   <strong>User:</strong>
   <%= @order.user_id %>
@@ -12,3 +14,35 @@
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
+=======
+<table>
+  <tr>
+    <th>Customer</th>
+    <td><%= @order.user_id %></td>
+  </tr>
+  <tr>
+    <th>Status:</th>
+    <td><%= @order.status %></td>
+  </tr>
+  <tr>
+    <th>Items:</th>
+    <td><%= @order.order_items.count %></td>
+  </tr>
+  <tr>
+    <th>Items</th>
+    <th>Title</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Subtotal</th>
+  </tr>
+  <% @order.order_items.each do |item| %>
+   <tr>
+     <td><%= image_tag "products/#{item.image_url}" %></td>
+     <td><%= item.product.title %></td>
+     <td><%= item.quantity %></td>
+     <td><%= print_price(item.product.price) %></td>
+     <td></td>
+   </tr>
+  <% end %>
+</table>
+>>>>>>> Stashed changes
