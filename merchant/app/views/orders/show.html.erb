@@ -1,7 +1,6 @@
 <!-- <p id="notice"><%= notice %></p> -->
 <h1>Your Order</h1>
 
-<<<<<<< Updated upstream
 <p>
   <strong>User:</strong>
   <%= @order.user_id %>
@@ -14,7 +13,11 @@
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
-=======
+
+<%= form_for @order do |f| %>
+
+<%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]} %>
+
 <table>
   <tr>
     <th>Customer</th>
@@ -46,5 +49,17 @@
      <td></td>
    </tr>
   <% end %>
+
+  <tr>
+    <th>Shipping To:</th>
+    <td>
+      (addresses select box)
+      (add an address link)
+    </td>
+  </tr>
+
+<%= f.submit "Submit Order" %>
+
 </table>
->>>>>>> Stashed changes
+
+<% end %

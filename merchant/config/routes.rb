@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   resources :addresses
   resources :addresses
   root to: "products#index"
-  
-  resources :orders
+
+  resources :orders do
+    membeer do
+      get :confirm_order_path
+    end
+  end
   resources :order_items
   resources :products
   match '/auth/:provider/callback', to: 'sessions#create', via: :get
